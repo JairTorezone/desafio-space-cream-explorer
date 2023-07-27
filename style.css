@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Staatliches", cursive;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+
+  --fs-body: 1.6rem;
+
+  --bg-color-header: #8e9aaf;
+  --bg-color-main: #eff1ff;
+  --bg-color-button: #feeafa;
+  --bg-color-title: #cbc0d3;
+
+  --font-color-title: #fff;
+  --font-color-text-p: #23053a;
+  --font-size-desck: "Roboto", sans-serif;
+}
+body {
+  font-size: var(--fs-body);
+}
+
+.container {
+  max-width: 38.4rem;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--bg-color-header);
+}
+header img {
+  margin-top: 3.2rem;
+}
+
+header h1 {
+  margin: 3.2rem 0 2.9rem;
+
+  color: var(--font-color-title);
+
+  font-size: 3.6rem;
+
+  font-weight: 400;
+  line-height: 3.2rem; /* 85% */
+  letter-spacing: 2px;
+
+  background: var(--bg-color-title);
+
+  width: 100%;
+  text-align: center;
+
+  padding: 15px;
+}
+
+header p {
+  color: var(--font-color-text-p);
+  text-align: center;
+  font-family: Palanquin;
+  font-size: 2rem;
+
+  font-weight: 400;
+  line-height: 2rem;
+
+  padding: 14px 36px 63px;
+}
+
+header p,
+main {
+  background-color: var(--bg-color-main);
+}
+
+main .wrapper {
+  display: grid;
+  justify-items: center;
+  gap: 36px;
+  padding: 0 3.2rem 6rem;
+}
+
+.card {
+  position: relative;
+}
+
+button {
+  color: #4a4e69;
+  font-family: Staatliches;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.4rem; /* 170% */
+  letter-spacing: 1px;
+  padding: 1px 24px;
+
+  background-color: var(--bg-color-button);
+  border-radius: 2rem;
+  border: 0;
+}
+
+.card button {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+}
+
+.card button {
+  animation: topdown 700ms;
+}
+
+.card img {
+  animation: downTop 700ms 350ms backwards;
+  max-width: 32rem;
+}
+/*.card + .PALETAS-D,
+.card + .PICOLES-D {
+  display: none;
+}
+*/
+
+.card + div:nth-child(3),
+.card + div:nth-child(4),
+header > img:nth-child(2) {
+  display: none;
+}
+
+footer {
+  display: none;
+}
+
+footer p {
+  color: #4a4e69;
+  font-family: Open Sans;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.8rem;
+  text-align: center;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downTop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*******************************************RESPONSIVIDADE */
+@media (min-width: 1200px) {
+  .container {
+    width: 100vw;
+    margin: 0;
+
+    display: grid;
+    grid-template-areas:
+      "header main main"
+      "header footer  footer";
+
+    grid-template-columns: max-content;
+    grid-template-rows: max-content;
+  }
+
+  header {
+    grid-area: header;
+    width: 37.7rem;
+  }
+  header h1 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+  }
+  header p {
+    background: var(--bg-color-header);
+    font-family: var(--font-size-desck);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    max-width: 271px;
+    height: 275px;
+    color: var(--font-color-title);
+  }
+
+  main {
+    grid-area: main;
+    background-color: var(--font-color-title);
+  }
+
+  main .wrapper {
+    width: 100%;
+    grid-template-areas:
+      "A B A"
+      "C D C";
+
+    gap: 3.2rem;
+
+    padding: 0;
+
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+
+    margin: 50px 81px;
+  }
+  .card img {
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+  }
+  .card + div:nth-child(3),
+  .card + div:nth-child(4),
+  header > img:nth-child(2) {
+    display: block;
+  }
+  header > img:nth-child(1) {
+    display: none;
+  }
+
+  .card button {
+    display: none;
+  }
+
+  footer {
+    grid-area: footer;
+    display: block;
+  }
+}
