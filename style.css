@@ -183,6 +183,9 @@ footer p {
     grid-template-columns: max-content;
     grid-template-rows: max-content;
   }
+  main .wrapper {
+    gap: 0;
+  }
 
   header {
     grid-area: header;
@@ -212,25 +215,16 @@ footer p {
   }
 
   main .wrapper {
-    width: 100%;
-    grid-template-areas:
-      "A B A"
-      "C D C";
-
     gap: 3.2rem;
 
-    padding: 0;
-
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 1fr 1fr 1fr;
 
     margin: 50px 81px;
   }
-  .card img {
-    margin: 0;
-    padding: 0;
-    height: fit-content;
+  .card {
+    position: static;
   }
+
   .card + div:nth-child(3),
   .card + div:nth-child(4),
   header > img:nth-child(2) {
